@@ -1,21 +1,22 @@
-
 #!usr/bin/python3
 
-from brownie import Coop, COOPToken, accounts, config 
-from scripts.helpers import get_account
-from web3 import Web3
+from brownie import SmartCOOP, COOPToken
+
+from scripts.helpful_scripts import get_account, get_contract
 
 initial_supplay = 10000_000_000_000_000_000_000
 
+# VERY IMPORTANT: add publish_source=True in final version of deploy script for Etherscan verification
+# add this after {'from':account} part when we deploy contract
 
-def deploy_coop ():
-    # account = get_account()
-    account = accounts.add(config["wallets"]["from_key"])
-    # account = accounts[0]
-    coopTokenDeployed = COOPToken.deploy(initial_supplay, {"from": account})
-    Coop.deploy(coopTokenDeployed, {"from": account})
-    
-    
+
+def deploy_smartCOOP():
+    account = get_account()
+    eth_usd_price_feed = get_contract("eth_usd_price_feed").address
+    coopTokenDeployed = COOPToken.deploy({"from": account[0]})
+    coop = SmartCOOP.deploy(coopTokenDeployed, eth_usd_price_feed, {"from": account[0]})
+    coopTokenDeployed.mint(coop.address, initial_supplay, {"from": str(account[0])})
+
 
 def main():
-    deploy_coop()
+    deploy_smartCOOP()
