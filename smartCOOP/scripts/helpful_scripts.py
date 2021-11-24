@@ -17,24 +17,22 @@ DECIMALS = 18
 INITIAL_VALUE = Web3.toWei(2000, "ether")
 
 
-def get_provider():
-    if network.show_active() == "development":
-        return Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-    else:
-        return Web3(
-            Web3.HTTPProvider(
-                endpoint_uri="https://kovan.infura.io/v3/d95759f532d54ae58967e92d9ccccf95"
-            )
-        )
+# def get_provider():
+#     if network.show_active() == "development":
+#         return Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+#     else:
+#         return Web3(
+#             Web3.HTTPProvider(
+#                 endpoint_uri="https://kovan.infura.io/v3/d95759f532d54ae58967e92d9ccccf95"
+#             )
+#         )
 
 
 def get_account():
     if network.show_active() == "development":
         return accounts[0], accounts[1]
     else:
-        return accounts.add(config["wallets"]["from_key"]), accounts.add(
-            "7acd6e2be2f0d28cb14b5a21e78f7f8d8ba9729633a292429a045f38b1b08698"
-        )
+        return accounts.add(config["wallets"]["from_key"]), "mock"
 
 
 def get_contract(contract_name):

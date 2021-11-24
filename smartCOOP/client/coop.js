@@ -40,13 +40,10 @@ import {
 
 // Init function is runned when page is loaded.
 function init() {
-  console.log("Ethereum provider is is", window.ethereum);
-
-
+  console.log("Ethereum provider is", window.ethereum);
   if (typeof window.ethereum !== 'undefined') {
     console.log('MetaMask is installed!');
   }
-
   cooperantProfile.style.visibility = "hidden";
   bidderProfile.style.visibility = "hidden";
 }
@@ -54,47 +51,35 @@ function init() {
 
 // Fetech cooperant account data
 async function fetchAccountDataCooperant() {
-
   networkName.textContent = await nameOfNetwork();
-
   const cooperantAccount = await ethereum.selectedAddress;
   const cooperantsAccountsBalance = await coopContract.methods.getUserAccountBalance(cooperantAccount).call();
-
   const clone = template.content.cloneNode(true);
   clone.querySelector(".address").textContent = cooperantAccount;
   clone.querySelector(".balance").textContent = cooperantsAccountsBalance[2];
   clone.querySelector(".kg").textContent = cooperantsAccountsBalance[1];
   accountContainer.innerHTML = '';
   accountContainer.appendChild(clone);
-
-
   prepare.style.display = "none";
   connected.style.display = "block";
-
   ethereum.on('accountsChanged', (accounts) => {
     fetchAccountDataCooperant();
   })
-
 }
 
 async function fetchAccountDataBidder() {
   becomeMember.style.visibility = "hidden";
   networkNameBidder.textContent = await nameOfNetworkBidder();
-
   const bidderAccount = await ethereum.selectedAddress;
   const bidderAccountBalance = await coopContract.methods.getBidderAccountBalance(bidderAccount).call();
-
   const clone = templateBidder.content.cloneNode(true);
   clone.querySelector(".addressBidder").textContent = bidderAccount;
   clone.querySelector(".balanceBidder").textContent = bidderAccountBalance[0];
   clone.querySelector(".kgBidder").textContent = bidderAccountBalance[1];
   accountContainerBidder.innerHTML = '';
   accountContainerBidder.appendChild(clone);
-
-
   prepare.style.display = "none";
   connected.style.display = "block";
-
   ethereum.on('accountsChanged', (accounts) => {
     fetchAccountDataBidder();
   })
@@ -107,10 +92,8 @@ btnConnect.onclick = async () => {
   } catch (err) {
     console.log("Could not get a wallet connection", err);
   }
-
   var connectedAccount = ethereum.selectedAddress;
   const cooperantAccount = await coopContract.methods.getUserAccountBalance(connectedAccount).call();
-
   if (ethereum.selectedAddress !== null && cooperantAccount[0] !== '0') {
     cooperantProfile.style.visibility = "visible";
     fetchAccountDataCooperant();
@@ -124,11 +107,6 @@ btnConnect.onclick = async () => {
 // Disconnect wallet button 
 btnDisconnect.onclick = () => {
   window.location.reload();
-
-  // Set the UI back to the initial state
-  // prepare.style.display = "block";
-  // connected.style.display = "none";
-  // cooperantProfile.style.visibility = "hidden";
 }
 
 
@@ -189,7 +167,7 @@ buyRaspberry.onclick = async () => {
   let inUSD = amount * raspberryPrice;
   var inWei = await coopContract.methods.ethUSD(inUSD).call();
   var inWeiString = String(inWei)
-  var done = coopContract.methods.bid(amount).send({ from: account, value: inWeiString }, async function (error, transactionHash) {
+  var done = coopContract.methods.bid(amount).send({ from: account, value: inWeiString, gas: 5000000 }, async function (error, transactionHash) {
     if (error) {
       console.log(error);
     } else {
@@ -225,13 +203,13 @@ addToken.onclick = async () => {
   }
 };
 
+try {
+  ethereum.on('networkChanged', nameOfNetwork)
+  ethereum.on('networkChanged', nameOfNetworkBidder);
+} catch (err) {
+  console.error('Please install MetaMask', err)
+}
 
-ethereum.on('networkChanged', nameOfNetwork)
-
-ethereum.on('networkChanged', nameOfNetworkBidder);
-
-
-// Main entry point
 window.addEventListener("load", async () => {
   init();
 });

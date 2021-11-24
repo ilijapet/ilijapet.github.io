@@ -20,7 +20,8 @@ const NetworkID = {
 }
 
 // Contract address
-const SCaddress = "0x5B160f17CE540eeEbFd4EcABa25f37504b2dbb0b";
+const SCaddress = "0xEebdc3de436ABe1F3150FfC5a658F2D84F1B55aB";
+
 
 // Contract ABI
 const ABI = [
@@ -39,6 +40,25 @@ const ABI = [
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "COOPTokenTransferConfirmation",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -187,6 +207,25 @@ const ABI = [
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "WithdrawConfirmation",
+    "type": "event"
+  },
+  {
     "stateMutability": "nonpayable",
     "type": "fallback"
   },
@@ -220,78 +259,6 @@ const ABI = [
       }
     ],
     "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "bidders",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "totalPayed",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "kgBought",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "receiver",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_kg",
-        "type": "uint256"
-      }
-    ],
-    "name": "coopTokenTransferTo",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "cooperants",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "feePayed",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "kg",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -336,7 +303,7 @@ const ABI = [
     "inputs": [
       {
         "internalType": "address",
-        "name": "_salje",
+        "name": "_bidder",
         "type": "address"
       }
     ],
@@ -373,7 +340,7 @@ const ABI = [
     "inputs": [
       {
         "internalType": "address",
-        "name": "_salje",
+        "name": "_user",
         "type": "address"
       }
     ],
@@ -393,25 +360,6 @@ const ABI = [
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "members",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -452,11 +400,29 @@ const ABI = [
   },
   {
     "inputs": [],
-    "name": "raspberryPrice",
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "s_bidders",
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "",
+        "name": "totalPayed",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "kgBought",
         "type": "uint256"
       }
     ],
@@ -464,10 +430,46 @@ const ABI = [
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "s_cooperants",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "feePayed",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "kg",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "s_warehouseStock",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -488,25 +490,6 @@ const ABI = [
     "name": "unpause",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "warehouseStock",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
