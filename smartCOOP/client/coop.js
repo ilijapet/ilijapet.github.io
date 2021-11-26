@@ -46,6 +46,7 @@ function init() {
   }  
   cooperantProfile.style.visibility = "hidden";
   bidderProfile.style.visibility = "hidden";
+  window.location.reload();
 }
 
 
