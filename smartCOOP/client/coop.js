@@ -103,30 +103,6 @@ btnConnect.onclick = async () => {
   }
 }
 
-// // Connect wallet button 
-// btnConnect.onclick = async () => {
-//   ethereum
-//     .request({ method: 'eth_requestAccounts' })    
-//     .catch((error) => {
-//       if (error.code === 4001) {
-//         // EIP-1193 userRejectedRequest error
-//         console.log('Please connect to MetaMask.');
-//       } else {
-//         console.error(error);
-//       }
-//     });
-
-//   var connectedAccount = ethereum.selectedAddress;
-//   const cooperantAccount = await coopContract.methods.getUserAccountBalance(connectedAccount).call();
-//   if (ethereum.selectedAddress !== null && cooperantAccount[0] !== '0') {
-//     cooperantProfile.style.visibility = "visible";
-//     fetchAccountDataCooperant();
-//   } else {
-//     bidderProfile.style.visibility = "visible";
-//     fetchAccountDataBidder();
-//   }
-// }
-
 
 // Disconnect wallet button 
 btnDisconnect.onclick = () => {
