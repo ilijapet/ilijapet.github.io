@@ -37,15 +37,17 @@ import {
   from "./helpers.js";
 
 
+
 // Init function is runned when page is loaded.
 function init() {
   console.log("Ethereum provider is", window.ethereum);
   if (typeof window.ethereum !== 'undefined') {
     console.log('MetaMask is installed!');
-  }  
+  }
+
   cooperantProfile.style.visibility = "hidden";
   bidderProfile.style.visibility = "hidden";
- }
+}
 
 
 // Fetech cooperant account data
@@ -84,10 +86,11 @@ async function fetchAccountDataBidder() {
   })
 }
 
-// Connect wallet button 
+
+// // Connect wallet button 
 btnConnect.onclick = async () => {
   try {
-    await ethereum.request({ method: 'eth_requestAccounts' });
+    ethereum.request({ method: 'eth_requestAccounts' });
   } catch (err) {
     console.log("Could not get a wallet connection", err);
   }
@@ -101,7 +104,6 @@ btnConnect.onclick = async () => {
     fetchAccountDataBidder();
   }
 }
-
 
 // Disconnect wallet button 
 btnDisconnect.onclick = () => {
@@ -211,5 +213,6 @@ try {
 }
 
 window.addEventListener("load", async () => {
-  init();  
+  init();
 });
+

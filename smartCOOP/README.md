@@ -20,6 +20,7 @@
 <br>
 
 ## Address for accessing SmartCOOP front-end 
+Please click on link below (don't copy & past link to browser address bar or if you copy & past link to browser make sure that you refresh page before dapp usage.)
 <hr>
 
 https://ilijapet.github.io/smartCOOP/client/
@@ -97,7 +98,7 @@ Python >= 3.6.0
 <hr>
 From project root directory please type (beafore this you need to install node 12)
 
-    smartCOOP$ npm install -g ganache-cli
+   $ npm install -g ganache-cli
 
 
 ## Brownie
@@ -135,7 +136,7 @@ Or simply:
 <hr>
 Please from project root directory use following command:
 
-    smartCOOP$ brownie pm install OpenZeppelin/openzeppelin-contracts@4.0.0
+    $ brownie pm install OpenZeppelin/openzeppelin-contracts@4.0.0
 
 <br>
 
@@ -143,30 +144,14 @@ Please from project root directory use following command:
 <hr>
 Please from project root directory use following command:
 
-    smartCOOP$ brownie pm install smartcontractkit/chainlink-brownie-contracts@0.2.2
-
-## http-localhost over HTTP 
-<hr>
-
-From client folder
-
-    $python3 -m http.server
-
-You should get something like:
-
-    Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-
-And then from browser:
-
-    http://localhost:8000
+    $ brownie pm install smartcontractkit/chainlink-brownie-contracts@0.2.2
     
-SmartCOOP front-end now shoudl be visible in your broweser 
 
 ## Environment variables 
 <hr>
 
-VERY IMPORTANT: 
-Beafore you start testing and compiling in project root directory you should add .env file and inside thta file add your private keys and following infura endpoint: 
+VERY IMPORTANT:
+Before you start testing and compiling in project root directory you should add .env file and inside that file add your private keys and following infura endpoint: 
 
         # Here we have private key export         
         PRIVATE_KEY=xxxxxx
@@ -176,7 +161,7 @@ Beafore you start testing and compiling in project root directory you should add
 
 ## Compile and test
 <hr>
-To compile and test project localy just type in project root directory:
+To compile and test project locally just type in project root directory:
 
     $ brownie compile
     $ brownie test
@@ -184,20 +169,49 @@ To compile and test project localy just type in project root directory:
 And you should see that 9 test are passed (with this test we did basica coverage of expected return values for all functions in main SmartCOOP contract)
 
 
-
 <br>
+
+## dapp usage over http localhost:  
+<hr>
+
+Step 1: Open your browser
+
+Step 2: From client folder
+    
+    $npm install http-server
+    $http-server
+
+You should get something like:
+
+    Available on:
+    http://127.0.0.1:8080
+    http://192.168.152.174:8080
+    Hit CTRL-C to stop the server
+
+And then copy&past to your browser address bar:
+
+    http://192.168.152.174:8080
+    
+SmartCOOP front-end should be visible in your browser ready for interaction.
+
+Important notice: Dapp is tested on local server and over https://ilijapet.github.io/smartCOOP/client/ according to the instructions we provide above and with following browsers: Brave, Chrome and Edge browser. As well as in the context of a clean Virtual machine (Linux Debina, Brave browser over Oracle VM VirtualBox).
+
+Only Firefox returned to us some exotic error that we finally did't succeed to figure out the root cause of this. And that is why if you test dapp over Firefox most probably you will confront some unexpected behaviour. 
 
 ## Step by step guide for dapp usage
 
 <hr>
+IMPORTANT: Please note that in attempt to test and use dapp you will need two have at least two EOA accounts with Kovan test eth. One to become a cooperant and second for a bidder.
+
+1) Open your browser
 
 1) From client folder run 
 
-        $ python3 -m hhtp:server
+        $http-server
 
 2) Open browser and type in address bar
 
-         http://localhost:8000
+         http://192.168.152.174:8080
 
 3) Log-in your MetaMask
 4) Click **Become SmartCOOP Member** button and confirm transaction
