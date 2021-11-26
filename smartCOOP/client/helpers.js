@@ -7,6 +7,7 @@ const templateBidder = document.getElementById("template-balance-bidder")
 const networkName = document.getElementById("network-name")
 const networkNameBidder = document.getElementById("network-name-bidder")
 
+// Account & bidder
 const cooperantProfile = document.getElementById("cooperantProfile")
 const bidderProfile = document.getElementById("bidderProfile")
 const accountContainer = document.getElementById("accounts")
@@ -33,18 +34,17 @@ const buttonTextDepositBidder = document.querySelector(".button__text_deposit_bi
 const buttonProgressDeposit = document.querySelector(".button__progress_deposit")
 const buttonProgressDepositBidder = document.querySelector(".button__progress_deposit_bidder")
 const addToken = document.getElementById("addToken")
+
 // Helper const
 const expectedBlockTime = 1000;
 const raspberryPrice = 9;
-const tokenAddress = '0x78A2915F62B5B9c767C857191Da3B232b1E23c71';
+const tokenAddress = '0xc6Fef8321b54610Afc1828FCF43DB607874962B3';
 const tokenSymbol = 'COOP';
 const tokenDecimals = 18;
 const tokenImage = 'https://ilijapet.github.io/photos/noun_raspberry_4132882_mala.svg';
 
 
-// Helper 1
-
-
+// Helper networks
 async function nameOfNetwork() {
   let id = ethereum.networkVersion;
   let netName = NetworkID[id];
@@ -58,12 +58,12 @@ async function nameOfNetworkBidder() {
 }
 
 
-// Helper 2
+// Helper sleep
 const sleep = (milliseconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
-// Helper function 3
+// Helper promise
 
 function MakeQuerablePromise(promise) {
   // Don't modify any promise that has been already modified.
@@ -95,7 +95,7 @@ function MakeQuerablePromise(promise) {
 }
 
 
-// Helper 4
+// Helper progress button
 async function setButtonProgress(button, buttonText, buttonProgress, tx) {
   buttonText.textContent = button.dataset.progressText;
   let x = 30;

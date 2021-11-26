@@ -179,6 +179,7 @@ buyRaspberry.onclick = async () => {
   });
 }
 
+// Add token button
 addToken.onclick = async () => {
   try {
     const wasAdded = await ethereum.request({

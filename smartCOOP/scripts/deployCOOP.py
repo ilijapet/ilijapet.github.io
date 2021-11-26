@@ -6,8 +6,7 @@ from scripts.helpful_scripts import get_account, get_contract
 
 initial_supplay = 10000_000_000_000_000_000_000
 
-# VERY IMPORTANT: add publish_source=True in final version of deploy script for Etherscan verification
-# add this after {'from':account} part when we deploy contract
+# add after deploy "publish_source=True" if you would like to publish re-deployed contracts on Etherscan
 
 
 def deploy_smartCOOP():
