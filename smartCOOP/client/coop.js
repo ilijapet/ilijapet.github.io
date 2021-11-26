@@ -36,7 +36,7 @@ import {
 }
   from "./helpers.js";
 
-
+window.location.reload();
 
 // Init function is runned when page is loaded.
 function init() {
@@ -46,8 +46,7 @@ function init() {
   }  
   cooperantProfile.style.visibility = "hidden";
   bidderProfile.style.visibility = "hidden";
-  window.location.reload();
-}
+ }
 
 
 // Fetech cooperant account data
