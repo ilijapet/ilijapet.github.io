@@ -210,7 +210,7 @@ try {
 } catch (err) {
   console.error('Please install MetaMask', err)
 }
-
+window.location.reload();
 window.addEventListener("load", async () => {
   init();
 });
