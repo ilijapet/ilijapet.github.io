@@ -44,6 +44,7 @@ function init() {
   if (typeof window.ethereum !== 'undefined') {
     console.log('MetaMask is installed!');
   }
+  window.location.reload();
   cooperantProfile.style.visibility = "hidden";
   bidderProfile.style.visibility = "hidden";
 }
