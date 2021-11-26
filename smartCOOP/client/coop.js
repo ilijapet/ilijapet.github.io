@@ -106,8 +106,7 @@ async function fetchAccountDataBidder() {
 // Connect wallet button 
 btnConnect.onclick = async () => {
   ethereum
-    .request({ method: 'eth_requestAccounts' })
-    .then(handleAccountsChanged)
+    .request({ method: 'eth_requestAccounts' })    
     .catch((error) => {
       if (error.code === 4001) {
         // EIP-1193 userRejectedRequest error
