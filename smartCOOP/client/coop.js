@@ -36,11 +36,6 @@ import {
 }
   from "./helpers.js";
 
-const reloadUsingLocationHash = () => {
-      window.location.hash = "reload";
-    }
-    window.onload = reloadUsingLocationHash();
-
 
 // Init function is runned when page is loaded.
 function init() {  
@@ -92,6 +87,10 @@ async function fetchAccountDataBidder() {
 
 // // Connect wallet button 
 btnConnect.onclick = async () => {  
+  const reloadUsingLocationHash = () => {
+      window.location.hash = "reload";
+    }
+    window.onload = reloadUsingLocationHash();
   try {
     const adresa = await ethereum.request({ method: 'eth_requestAccounts' });
   } catch (err) {
