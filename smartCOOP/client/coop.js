@@ -40,6 +40,7 @@ import {
 
 // Init function is runned when page is loaded.
 function init() {
+  window.location.reload();
   console.log("Ethereum provider is", window.ethereum);
   if (typeof window.ethereum !== 'undefined') {
     console.log('MetaMask is installed!');
@@ -87,8 +88,7 @@ async function fetchAccountDataBidder() {
 
 
 // // Connect wallet button 
-btnConnect.onclick = async () => {
-  window.location.reload();
+btnConnect.onclick = async () => {  
   try {
     const adresa = await ethereum.request({ method: 'eth_requestAccounts' });
   } catch (err) {
