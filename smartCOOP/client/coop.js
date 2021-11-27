@@ -96,6 +96,8 @@ btnConnect.onclick = async () => {
   console.log('1')
   try {
     const address = await ethereum.request({ method: 'eth_requestAccounts' });
+    console.log(address);
+    consle.log(typeof(address);
   } catch (error) {
     console.log("Could not get a wallet connection", error);
   }
