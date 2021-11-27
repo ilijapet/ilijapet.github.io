@@ -46,8 +46,7 @@ function init() {
   }
 
   cooperantProfile.style.visibility = "hidden";
-  bidderProfile.style.visibility = "hidden";
-  rel();
+  bidderProfile.style.visibility = "hidden";  
 }
 
 function rel() {
@@ -217,5 +216,6 @@ try {
 
 window.addEventListener("load", async () => {
   init();
+  rel();
 });
 
