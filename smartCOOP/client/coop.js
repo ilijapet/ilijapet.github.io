@@ -218,5 +218,5 @@ window.addEventListener("load", async () => {
   init();  
 });
 
-rel();
+
 
