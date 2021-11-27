@@ -37,10 +37,10 @@ import {
   from "./helpers.js";
 
 
+window.location.reload();
 
 // Init function is runned when page is loaded.
-function init() {
-  window.location.reload();
+function init() {  
   console.log("Ethereum provider is", window.ethereum);
   if (typeof window.ethereum !== 'undefined') {
     console.log('MetaMask is installed!');
