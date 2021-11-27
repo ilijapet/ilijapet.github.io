@@ -99,7 +99,7 @@ btnConnect.onclick = async () => {
     console.log(address);
     console.log(typeOf(address));
   } catch (error) {
-    console.log("Could not get a wallet connection", error));
+    console.log("Could not get a wallet connection", error);
   }
   console.log('2')
   var connectedAccount = ethereum.selectedAddress;
