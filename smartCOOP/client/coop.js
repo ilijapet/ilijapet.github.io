@@ -101,7 +101,9 @@ btnConnect.onclick = async () => {
   }
   console.log('2')
   var connectedAccount = ethereum.selectedAddress;
-  console.log('3')
+  console.log('3');
+  consle.log(connectedAccount);
+  console.lgo(typeof(connectedAccount));
   const cooperantAccount = coopContract.methods.getUserAccountBalance(connectedAccount).call();
   console.log('4')
   if (ethereum.selectedAddress !== null && cooperantAccount[0] !== '0') {
