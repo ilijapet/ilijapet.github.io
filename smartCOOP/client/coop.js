@@ -48,6 +48,10 @@ function init() {
   bidderProfile.style.visibility = "hidden";  
 }
 
+const reloadUsingLocationHash = () => {
+      window.location.hash = "reload";
+    }
+
 // Fetech cooperant account data
 async function fetchAccountDataCooperant() {
   networkName.textContent = await nameOfNetwork();
@@ -210,11 +214,8 @@ try {
   console.error('Please install MetaMask', err)
 }
 
-window.addEventListener("load", async () => {
-  const reloadUsingLocationHash = () => {
-      window.location.hash = "reload";
-    }
-    window.onload = reloadUsingLocationHash();
+window.addEventListener("load", async () => {  
+  window.onload = reloadUsingLocationHash();
   init();  
 });
 
