@@ -215,7 +215,8 @@ try {
 }
 
 window.addEventListener("load", async () => {  
-  window.onload = reloadUsingLocationHash();
+  reloadUsingLocationHash();
+//   window.onload = 
   init();  
 });
 
