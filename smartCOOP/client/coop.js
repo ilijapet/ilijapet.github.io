@@ -103,12 +103,15 @@ btnConnect.onclick = async () => {
   var connectedAccount = ethereum.selectedAddress;
   console.log('3')
   const cooperantAccount = await coopContract.methods.getUserAccountBalance(connectedAccount).call();
+  console.log('4')
   if (ethereum.selectedAddress !== null && cooperantAccount[0] !== '0') {
     cooperantProfile.style.visibility = "visible";
     fetchAccountDataCooperant();
+    console.log('5')
   } else {
     bidderProfile.style.visibility = "visible";
     fetchAccountDataBidder();
+    console.log('6')
   }
 }
 
