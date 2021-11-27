@@ -100,7 +100,7 @@ btnConnect.onclick = async () => {
   }  
   var connectedAccount = ethereum.selectedAddress;  
   console.log(connectedAccount);
-  console.log(typeOf(connectedAccount));
+  console.log(typeof(connectedAccount));
   const cooperantAccount = await coopContract.methods.getUserAccountBalance(connectedAccount).call();  
   if (ethereum.selectedAddress !== null && cooperantAccount[0] !== '0') {
     cooperantProfile.style.visibility = "visible";
