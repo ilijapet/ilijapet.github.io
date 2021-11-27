@@ -188,15 +188,13 @@ You should get something like:
     http://192.168.152.174:8080
     Hit CTRL-C to stop the server
 
-And then copy&past to your browser address bar:
+Step 3: copy&past to your browser address bar:
 
     http://192.168.152.174:8080
     
 SmartCOOP front-end should be visible in your browser ready for interaction.
 
-Important notice: Dapp is tested on local server and over https://ilijapet.github.io/smartCOOP/client/ according to the instructions we provide above and with following browsers: Brave, Chrome and Edge browser. As well as in the context of a clean Virtual machine (Linux Debina, Brave browser over Oracle VM VirtualBox).
-
-Only Firefox returned to us some exotic error that we finally did't succeed to figure out the root cause of this. And that is why if you test dapp over Firefox most probably you will confront some unexpected behaviour. 
+Important notice: Dapp is tested on local server and over https://ilijapet.github.io/smartCOOP/client/ according to the instructions we provide above and with following browsers: Brave, Chrome, Firefox and Edge browser. As well as in the context of a clean Virtual machine (Linux Debina, Brave browser over Oracle VM VirtualBox).
 
 ## Step by step guide for dapp usage
 

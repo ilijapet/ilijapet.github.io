@@ -92,20 +92,20 @@ async function fetchAccountDataBidder() {
 
 
 // // Connect wallet button 
-btnConnect.onclick = async () => {    
+btnConnect.onclick = async () => {     
   try {
-    const adresa = await ethereum.request({ method: 'eth_requestAccounts' });
-  } catch (err) {
-    console.log("Could not get a wallet connection", err);
-  }
-  var connectedAccount = ethereum.selectedAddress;
-  const cooperantAccount = await coopContract.methods.getUserAccountBalance(connectedAccount).call();
+    const address = await ethereum.request({ method: 'eth_requestAccounts' });        
+  } catch (error) {
+    console.log("Could not get a wallet connection", error);
+  }  
+  var connectedAccount = ethereum.selectedAddress;  
+  const cooperantAccount = await coopContract.methods.getUserAccountBalance(connectedAccount).call();  
   if (ethereum.selectedAddress !== null && cooperantAccount[0] !== '0') {
     cooperantProfile.style.visibility = "visible";
-    fetchAccountDataCooperant();
+    fetchAccountDataCooperant();    
   } else {
     bidderProfile.style.visibility = "visible";
-    fetchAccountDataBidder();
+    fetchAccountDataBidder();  
   }
 }
 
