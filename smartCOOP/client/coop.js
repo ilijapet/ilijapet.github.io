@@ -215,7 +215,8 @@ try {
 }
 
 window.addEventListener("load", async () => {
-  init();
-  rel();
+  init();  
 });
+
+rel();
 
