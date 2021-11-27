@@ -37,6 +37,11 @@ import {
   from "./helpers.js";
 
 
+const reloadUsingLocationHash = () => {
+      window.location.hash = "reload";
+    }
+   window.onload = reloadUsingLocationHash();
+
 // Init function is runned when page is loaded.
 function init() {  
   console.log("Ethereum provider is", window.ethereum);
@@ -48,9 +53,6 @@ function init() {
   bidderProfile.style.visibility = "hidden";  
 }
 
-const reloadUsingLocationHash = () => {
-      window.location.hash = "reload";
-    }
 
 // Fetech cooperant account data
 async function fetchAccountDataCooperant() {
@@ -214,9 +216,7 @@ try {
   console.error('Please install MetaMask', err)
 }
 
-window.addEventListener("load", async () => {  
-  reloadUsingLocationHash();
-//   window.onload = 
+window.addEventListener("load", async () => {   
   init();  
 });
 
