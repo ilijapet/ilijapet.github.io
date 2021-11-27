@@ -37,7 +37,6 @@ import {
   from "./helpers.js";
 
 
-window.location.reload();
 
 // Init function is runned when page is loaded.
 function init() {  
