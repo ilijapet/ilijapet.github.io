@@ -92,7 +92,7 @@ async function fetchAccountDataBidder() {
 // // Connect wallet button 
 btnConnect.onclick = async () => {
   try {
-    await ethereum.request({ method: 'eth_requestAccounts' });
+    const adresa = await ethereum.request({ method: 'eth_requestAccounts' });
   } catch (err) {
     console.log("Could not get a wallet connection", err);
   }
