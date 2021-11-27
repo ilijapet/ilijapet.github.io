@@ -49,9 +49,6 @@ function init() {
   bidderProfile.style.visibility = "hidden";  
 }
 
-function rel() {
-  location.reload()
-}
 // Fetech cooperant account data
 async function fetchAccountDataCooperant() {
   networkName.textContent = await nameOfNetwork();
