@@ -99,7 +99,7 @@ btnConnect.onclick = async () => {
     console.log("Could not get a wallet connection", error);
   }  
   var connectedAccount = ethereum.selectedAddress;  
-  const cooperantAccount = coopContract.methods.getUserAccountBalance(connectedAccount).call();  
+  const cooperantAccount = await coopContract.methods.getUserAccountBalance(connectedAccount).call();  
   if (ethereum.selectedAddress !== null && cooperantAccount[0] !== '0') {
     cooperantProfile.style.visibility = "visible";
     fetchAccountDataCooperant();    
