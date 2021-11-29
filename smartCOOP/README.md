@@ -20,8 +20,7 @@
 <br>
 
 ## Address for accessing SmartCOOP front-end 
-Please click on link below (don't copy & past link to browser address bar or if you copy & past link to browser make sure that you refresh page before dapp usage.)
-<hr>
+Please click on link below
 
 https://ilijapet.github.io/smartCOOP/client/
 
@@ -96,9 +95,10 @@ Python >= 3.6.0
 
 ## Ganche-cli 
 <hr>
+
 From project root directory please type (beafore this you need to install node 12)
 
-   $ npm install -g ganache-cli
+      $ npm install -g ganache-cli
 
 
 ## Brownie
@@ -151,7 +151,7 @@ Please from project root directory use following command:
 <hr>
 
 VERY IMPORTANT:
-Before you start testing and compiling in project root directory you should add .env file and inside that file add your private keys and following infura endpoint: 
+Before you start testing and compiling in project smartCOOP root directory you should add .env file and inside that file add your private keys and following infura endpoint: 
 
         # Here we have private key export         
         PRIVATE_KEY=xxxxxx
@@ -192,11 +192,33 @@ Step 3: copy&past to your browser address bar:
 
     http://192.168.152.174:8080
     
+    
+SmartCOOP front-end should be visible in your browser ready for interaction.
+    
+ 
+Or Python version
+
+Step 1: Open your browser
+
+Step 2: From clinet folder
+
+        $pyhton3 -m http.server
+        
+You should get something like:
+
+        Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+        
+Step 3: Go back to your browser and type in address bar:
+
+        http://localhost:8000
+
+       
+    
 SmartCOOP front-end should be visible in your browser ready for interaction.
 
-Important notice: Dapp is tested on local server and over https://ilijapet.github.io/smartCOOP/client/ according to the instructions we provide above and with following browsers: Brave, Chrome, Firefox and Edge browser. As well as in the context of a clean Virtual machine (Linux Debina, Brave browser over Oracle VM VirtualBox).
+Important notice: Dapp is tested on local server and over https://ilijapet.github.io/smartCOOP/client/ according to the instructions we provide above and with following browsers: Brave, Chrome, Firefox and Edge as well as in the context of a clean Virtual machine (Linux Debina, Brave browser over Oracle VM VirtualBox). SmartCOOP dapp was functioning smoothly in all this browser when we run over local server and over github page except in one specific situation.
 
-Bugs noticed in interaction with Brave browser to be aware: in specific corner case when you are already logged in your MetaMask wallet and you land at the front-end and try to click 'Connect wallet' ethereum.selectedAddress return 'undefined'. In all other browsers where we test our dapp and in the same situation we get in return expected value what is ethereum address string data type and dapp is fully functional in all possbile scenarios. Even case when we simple refresh the page Brave return expected value and work properly. Unfortunately till the end of this process we did`t figure out the root cause of this Brave behaviour. 
+Bugs noticed in interaction with Brave browser to be aware: in specific corner case when you are already logged in your MetaMask wallet and you land at the front-end and try to click 'Connect wallet' ethereum.selectedAddress return 'undefined'. In all other browsers where we test our dapp and in the same situation we get in return expected value what is ethereum address string data type and dapp is fully functional in all possbile scenarios. Even case when we simple refresh the page Brave return expected value and work properly. Unfortunately till the end of this process we did`t figure out the root cause of this Brave behaviour.            
 
 ## Step by step guide for dapp usage
 
@@ -205,7 +227,7 @@ IMPORTANT: Please note that in attempt to test and use dapp you will need two ha
 
 1) Open your browser
 
-1) From client folder run 
+1) From client folder in your editor or IDE run 
 
         $http-server
 
