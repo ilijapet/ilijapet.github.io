@@ -22,7 +22,7 @@
 ## Address for accessing SmartCOOP front-end 
 Please click on link below
 
-https://ilijapet.github.io/smartCOOP/client/
+https://ilijapet.github.io/smartCOOPtest/client/
 
 <br>
 
