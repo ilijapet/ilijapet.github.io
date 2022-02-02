@@ -20,7 +20,8 @@ const NetworkID = {
 }
 
 // Contract address
-const SCaddress = "0xfB7A3E46021Be5F70c3A85A7CeB5491AC2338857";
+const SCaddress = "0x2a52F31CE495E910A31e9FA98aeE159CeEDa85F0";
+
 
 // Contract ABI
 const ABI = [
