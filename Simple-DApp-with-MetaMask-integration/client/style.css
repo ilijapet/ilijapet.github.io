@@ -1,0 +1,59 @@
+body {
+  background: linear-gradient(
+    to right,
+    #ff7b00,
+    #ff8800,
+    #ff9500,
+    #ffa200,
+    #ffaa00,
+    #ffb700,
+    #ffc300
+  );
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: #003566;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.btnConnect {
+  border: none;
+  color: white;
+  background-color: #003566;
+  position: relative;
+  padding: 15px 21px;
+  margin: 3cm;
+  border-radius: 30px;
+  font-size: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btnUpdate {
+  border: none;
+  color: white;
+  background-color: #003566;
+  position: relative;
+  padding: 15px 21px;
+  margin: 1cm;
+  border-radius: 30px;
+  font-size: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btnRead {
+  border: none;
+  color: white;
+  background-color: #003566;
+  position: relative;
+  padding: 15px 21px;
+  margin: 1cm;
+  border-radius: 30px;
+  font-size: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+span {
+  font-size: 25px;
+}
