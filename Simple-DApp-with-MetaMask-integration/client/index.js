@@ -1,4 +1,4 @@
-import { contract } from "./helpers";
+import { contract } from "./helpers.js";
 
 // Picking up elements from HTML
 const connect = document.getElementById("connectBtn");
