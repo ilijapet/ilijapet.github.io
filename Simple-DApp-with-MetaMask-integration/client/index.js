@@ -1,14 +1,6 @@
-import { contract } from "./helpers.js";
+const { ethers } = require("ethers");
+const { contract } = require("./helpers");
 
-// Picking up elements from HTML
-const connect = document.getElementById("connectBtn");
-const read = document.getElementById("readBtn");
-const update = document.getElementById("updateBtn");
-const updateName = document.getElementById("inputName");
-const readName = document.getElementById("readName");
-const returnValue = document.getElementById("returnValue");
-
-// Over ethereum object inside window object check on every load if Meta Mask is instaled. If now alert user to install Meta Mask
 function init() {
   if (typeof window.ethereum !== "undefined") {
     console.log("MetaMask is installed!");
@@ -17,32 +9,34 @@ function init() {
   }
 }
 
-// Connect button for Meta Mask
-connect.onclick = async () => {
+const connect = async () => {
   try {
     await ethereum.request({ method: "eth_requestAccounts" });
-    connect.innerHTML = "Connected";
+    document.getElementById("connectBtn").innerHTML = "Connected";
   } catch (error) {
     console.log("Could not get a wallet connection", error);
   }
 };
 
-// Button whihc pick up input name we give and pass as argument to addName function from our smart contract. Take a look on syntaxt contrac.function(argument) Basically we create this contract with ethers.js Contract object that boundle our 1) smart contract address 2) ABI 3) Meta Mask signer
-update.onclick = async () => {
-  let newName = updateName.value;
+const update = async () => {
+  let newName = document.getElementById("inputName").value;
+  console.log(newName);
   await contract.addName(newName);
-  inputName.value = "";
+  document.getElementById("inputName").value = "";
   console.log("You just add new name");
 };
 
-// Here we are picking im desired index from our front end input and passing as argument to smart contract returnName function. Ones we get this value form blockchaine we can display to user name
-read.onclick = async () => {
-  let readNameRes = readName.value;
+const read = async () => {
+  let readNameRes = document.getElementById("readName").value;
+  console.log(readNameRes);
   let name = await contract.returnName(readNameRes);
-  returnValue.textContent = name;
-  readName.value = "";
+  console.log(name);
+  document.getElementById("returnValue").textContent = name;
+  document.getElementById("readName").value = "";
 };
 
 window.addEventListener("load", () => {
   init();
 });
+
+module.exports = { connect, update, read };

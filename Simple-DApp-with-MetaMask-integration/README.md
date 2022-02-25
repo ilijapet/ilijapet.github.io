@@ -530,3 +530,8 @@ And you should see something like this
 <img src="./Blog_picture/5.png">
 
 Now you should be able to connect your Meta Mask, submit transaction to your smart contract and read from it. And this basic pattern will emerge again and again through all your future DApps.
+
+
+Here on this address you can test DApp by youself
+
+https://ilijapet.github.io/Simple-DApp-with-MetaMask-integration/client/
